@@ -3239,7 +3239,7 @@ text3 = [[
 return text3
 end
 
-if matches[1] == "راهنما" and is_mod(msg) then
+if matches[1] == "راhgjkgjgjjjhjhghghghgftgا" and is_mod(msg) then
 text4 = [[
 
 
@@ -3362,7 +3362,7 @@ end
  end
 return {
 patterns ={
-"^(راهنما)$",
+"^(رgjjhjhhjghjghjgjhgjhgjhgا)$",
 "^(انلاینی)$",
 "^(hjkhjنتنhjااتا)$",
 "^(ددتاذتhvhhhhhhhhhhhhللاojkojh)$",
