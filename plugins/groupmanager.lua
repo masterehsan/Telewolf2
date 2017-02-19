@@ -5,7 +5,7 @@ local lang = redis:get(hash)
    if not lang then
         return '_You are not bot admin_'
 else
-     return 'شما مدیر ربات نمیباشید'
+     return '_شما مدیر ربات نمیباشید_'
     end
 end
     local data = load_data(_config.moderation.data)
@@ -13,7 +13,7 @@ end
 if not lang then
    return '_Group is already added_'
 else
-return 'گروه در لیست گروه های مدیریتی ربات هم اکنون موجود است'
+return '_گروه در لیست گروه های مدیریتی ربات هم اکنون موجود است_'
   end
 end
         -- create data array in moderation.json
@@ -61,7 +61,7 @@ end
     if not lang then
   return '*Group has been added*'
 else
-  return 'گروه با موفقیت به لیست گروه های مدیریتی ربات افزوده شد'
+  return '_گروه با موفقیت به لیست گروه های مدیریتی ربات افزوده شد_'
 end
 end
 
@@ -73,7 +73,7 @@ local lang = redis:get(hash)
      if not lang then
         return '_You are not bot admin_'
    else
-        return 'شما مدیر ربات نمیباشید'
+        return '_شما مدیر ربات نمیباشید_'
     end
    end
     local data = load_data(_config.moderation.data)
@@ -82,7 +82,7 @@ local lang = redis:get(hash)
   if not lang then
     return '_Group is not added_'
 else
-    return 'گروه به لیست گروه های مدیریتی ربات اضافه نشده است'
+    return '_گروه به لیست گروه های مدیریتی ربات اضافه نشده است_'
    end
   end
 
@@ -97,7 +97,7 @@ else
  if not lang then
   return '*Group has been removed*'
  else
-  return 'گروه با موفیت از لیست گروه های مدیریتی ربات حذف شد'
+  return '_گروه با موفیت از لیست گروه های مدیریتی ربات حذف شد_'
 end
 end
 
@@ -159,7 +159,7 @@ local lang = redis:get(hash)
   if not lang then
     return "_Group is not added_"
  else
-    return "گروه به لیست گروه های مدیریتی ربات اضافه نشده است"
+    return "_گروه به لیست گروه های مدیریتی ربات اضافه نشده است_"
   end
  end
   -- determine if table is empty
@@ -167,7 +167,7 @@ local lang = redis:get(hash)
   if not lang then
     return "_No_ *moderator* _in this group_"
 else
-   return "در حال حاضر هیچ مدیری برای گروه انتخاب نشده است"
+   return "_در حال حاضر هیچ مدیری برای گروه انتخاب نشده است_"
   end
 end
 if not lang then
@@ -192,7 +192,7 @@ local lang = redis:get(hash)
 if not lang then
     return "_Group is not added_"
 else
-return "گروه به لیست گروه های مدیریتی ربات اضافه نشده است"
+return "_گروه به لیست گروه های مدیریتی ربات اضافه نشده است_"
   end
 end
   -- determine if table is empty
@@ -200,7 +200,7 @@ end
  if not lang then
     return "_No_ *owner* _in this group_"
 else
-    return "در حال حاضر هیچ مالکی برای گروه انتخاب نشده است"
+    return "_در حال حاضر هیچ مالکی برای گروه انتخاب نشده است_"
   end
 end
 if not lang then
@@ -597,24 +597,24 @@ if not is_mod(msg) then
 if not lang then
  return "_You're Not_ *Moderator*"
 else
- return "شما مدیر گروه نمیباشید"
+ return "_شما مدیر گروه نمیباشید_"
 end
 end
 
 local lock_link = data[tostring(target)]["settings"]["lock_link"] 
 if lock_link == "yes" then
 if not lang then
- return "🔒*Link* _Posting Is Already Locked_🔒"
+ return "*Link* _Posting Is Already Locked_"
 elseif lang then
- return "🔒ارسال لینک در گروه هم اکنون ممنوع است🔒"
+ return "_ارسال ✽لینک✽ در گروه هم اکنون ممنوع است_"
 end
 else
 data[tostring(target)]["settings"]["lock_link"] = "yes"
 save_data(_config.moderation.data, data) 
 if not lang then
- return "🔒*Link* _Posting Has Been Locked_🔒"
+ return "*Link* _Posting Has Been Locked_"
 else
- return "🔒ارسال لینک در گروه ممنوع شد🔒"
+ return "_ارسال ✽لینک✽ در گروه با موفقیت ممنوع شد! و از این پس پاک خواهد شد_"
 end
 end
 end
@@ -626,23 +626,23 @@ local lang = redis:get(hash)
 if not lang then
 return "_You're Not_ *Moderator*"
 else
-return "شما مدیر گروه نمیباشید"
+return "_شما مدیر گروه نمیباشید_"
 end
 end 
 
 local lock_link = data[tostring(target)]["settings"]["lock_link"]
  if lock_link == "no" then
 if not lang then
-return "🔓*Link* _Posting Is Not Locked_🔓" 
+return "*Link* _Posting Is Not Locked_" 
 elseif lang then
-return "🔓ارسال لینک در گروه ممنوع نمیباشد🔓"
+return "_ارسال ✽لینک✽ در گروه ممنوع نمیباشد_"
 end
 else 
 data[tostring(target)]["settings"]["lock_link"] = "no" save_data(_config.moderation.data, data) 
 if not lang then
-return "🔓*Link* _Posting Has Been Unlocked_🔓" 
+return "*Link* _Posting Has Been Unlocked_" 
 else
-return "🔓ارسال لینک در گروه آزاد شد🔓"
+return "_ارسال ✽لینک✽ در گروه آزاد شد_"
 end
 end
 end
@@ -657,24 +657,24 @@ if not is_mod(msg) then
 if not lang then
  return "_You're Not_ *Moderator*"
 else
- return "شما مدیر گروه نمیباشید"
+ return "_شما مدیر گروه نمیباشید_"
 end
 end
 
 local lock_fosh = data[tostring(target)]["settings"]["lock_fosh"] 
 if lock_fosh == "yes" then
 if not lang then
- return "🔒*Fosh* _Posting Is Already Locked_🔒"
+ return "*Fosh* _Posting Is Already Locked_"
 elseif lang then
- return "🔒قفل فحش فعال است🔒"
+ return "_ارسال ✽فحش✽ در گروه هم اکنون ممنوع است_"
 end
 else
 data[tostring(target)]["settings"]["lock_fosh"] = "yes"
 save_data(_config.moderation.data, data) 
 if not lang then
- return "🔒*Fosh* _ Has Been Locked_🔒"
+ return "*Fosh* _ Has Been Locked_"
 else
- return "🔒قفل فحش فعال شد🔒"
+ return "_ارسال ✽فحش✽  در گروه با موفقیت ممنوع شد! و از این پس پاک خواهد شد_"
 end
 end
 end
@@ -686,23 +686,23 @@ local lang = redis:get(hash)
 if not lang then
 return "_You're Not_ *Moderator*"
 else
-return "شما مدیر گروه نمیباشید"
+return "_شما مدیر گروه نمیباشید_"
 end
 end 
 
 local lock_fosh = data[tostring(target)]["settings"]["lock_fosh"]
  if lock_fosh == "no" then
 if not lang then
-return "🔓*Fosh* _Is Not Locked_🔓" 
+return "*Fosh* _Is Not Locked_" 
 elseif lang then
-return "🔓قفل فحش غیرفعال میباشد🔓"
+return "_قفل ✽فحش✽ در گروه غیر فعال میباشد_"
 end
 else 
 data[tostring(target)]["settings"]["lock_fosh"] = "no" save_data(_config.moderation.data, data) 
 if not lang then
-return "🔓*Fosh* _Has Been Unlocked_🔓" 
+return "*Fosh* _Has Been Unlocked_" 
 else
-return "🔓قفل فحش غیرفعال شد🔓"
+return "_قفل ✽فحش✽ در گروه غیر فعال شد_"
 end
 end
 end
@@ -715,24 +715,24 @@ if not is_mod(msg) then
 if not lang then
  return "_You're Not_ *Moderator*"
 else
- return "شما مدیر گروه نمیباشید"
+ return "_شما مدیر گروه نمیباشید_"
 end
 end
 
 local lock_tag = data[tostring(target)]["settings"]["lock_tag"] 
 if lock_tag == "yes" then
 if not lang then
- return "🔒*Tag* _Posting Is Already Locked_🔒"
+ return "*Tag* _Posting Is Already Locked_"
 elseif lang then
- return "🔒ارسال تگ در گروه هم اکنون ممنوع است🔒"
+ return "_ارسال ✽تگ✽ در گروه هم اکنون ممنوع است_"
 end
 else
  data[tostring(target)]["settings"]["lock_tag"] = "yes"
 save_data(_config.moderation.data, data) 
 if not lang then
- return "🔒*Tag* _Posting Has Been Locked_🔒"
+ return "*Tag* _Posting Has Been Locked_"
 else
- return "🔒ارسال تگ در گروه ممنوع شد🔒"
+ return "_ارسال ✽تگ✽ در گروه  با موفقیت ممنوع شد! و از این پس پاک خواهد شد_"
 end
 end
 end
@@ -744,23 +744,23 @@ local lang = redis:get(hash)
 if not lang then
 return "_You're Not_ *Moderator*"
 else
- return "شما مدیر گروه نمیباشید"
+ return "_شما مدیر گروه نمیباشید_"
 end 
 end
 
 local lock_tag = data[tostring(target)]["settings"]["lock_tag"]
  if lock_tag == "no" then
 if not lang then
-return "🔓*Tag* _Posting Is Not Locked_🔓" 
+return "*Tag* _Posting Is Not Locked_" 
 elseif lang then
-return "🔓ارسال تگ در گروه ممنوع نمیباشد🔓"
+return "_ارسال ✽تگ✽ در گروه ممنوع نمیباشد_"
 end
 else 
 data[tostring(target)]["settings"]["lock_tag"] = "no" save_data(_config.moderation.data, data) 
 if not lang then
-return "🔓*Tag* _Posting Has Been Unlocked_🔓" 
+return "*Tag* _Posting Has Been Unlocked_" 
 else
-return "🔓ارسال تگ در گروه آزاد شد🔓"
+return "_ارسال ✽تگ✽ در گروه آزاد شد_"
 end
 end
 end
@@ -773,24 +773,24 @@ if not is_mod(msg) then
 if not lang then
  return "_You're Not_ *Moderator*"
 else
- return "شما مدیر گروه نمیباشید"
+ return "_شما مدیر گروه نمیباشید_"
 end
 end
 
 local lock_mention = data[tostring(target)]["settings"]["lock_mention"] 
 if lock_mention == "yes" then
 if not lang then
- return "🔒*Mention* _Posting Is Already Locked_🔒"
+ return "*Mention* _Posting Is Already Locked_"
 elseif lang then
- return "🔒ارسال فراخوانی افراد هم اکنون ممنوع است🔒"
+ return "_ارسال ✽فراخوانی افراد✽ در گروه هم اکنون ممنوع است_"
 end
 else
  data[tostring(target)]["settings"]["lock_mention"] = "yes"
 save_data(_config.moderation.data, data)
 if not lang then 
- return "🔒*Mention* _Posting Has Been Locked_🔒"
+ return "*Mention* _Posting Has Been Locked_"
 else 
- return "🔒ارسال فراخوانی افراد در گروه ممنوع شد🔒"
+ return "_ارسال ✽فراخوانی افراد✽ در گروه  با موفقیت ممنوع شد! و از این پس پاک خواهد شد_"
 end
 end
 end
@@ -802,23 +802,23 @@ local lang = redis:get(hash)
 if not lang then
 return "_You're Not_ *Moderator*"
 else
-return "شما مدیر گروه نمیباشید"
+return "_شما مدیر گروه نمیباشید_"
 end
 end 
 
 local lock_mention = data[tostring(target)]["settings"]["lock_mention"]
  if lock_mention == "no" then
 if not lang then
-return "🔓*Mention* _Posting Is Not Locked_🔓" 
+return "*Mention* _Posting Is Not Locked_" 
 elseif lang then
-return "🔓ارسال فراخوانی افراد در گروه ممنوع نمیباشد🔓"
+return "_ارسال ✽فراخوانی افراد✽ در گروه ممنوع نمیباشد_"
 end
 else 
 data[tostring(target)]["settings"]["lock_mention"] = "no" save_data(_config.moderation.data, data) 
 if not lang then
-return "🔓*Mention* _Posting Has Been Unlocked_🔓" 
+return "*Mention* _Posting Has Been Unlocked_" 
 else
-return "🔓ارسال فراخوانی افراد در گروه آزاد شد🔓"
+return "_ارسال ✽فراخوانی افراد✽ در گروه آزاد شد_"
 end
 end
 end
@@ -831,24 +831,24 @@ if not is_mod(msg) then
 if not lang then
  return "_You're Not_ *Moderator*"
 else
- return "شما مدیر گروه نمیباشید"
+ return "_شما مدیر گروه نمیباشید_"
 end
 end
 
 local lock_arabic = data[tostring(target)]["settings"]["lock_arabic"] 
 if lock_arabic == "yes" then
 if not lang then
- return "🔒*Arabic/Persian* _Posting Is Already Locked_🔒"
+ return "*Arabic/Persian* _Posting Is Already Locked_"
 elseif lang then
- return "🔒ارسال کلمات عربی/فارسی در گروه هم اکنون ممنوع است🔒"
+ return "_ارسال ✽کلمات عربی/فارسی✽ در گروه هم اکنون ممنوع است_"
 end
 else
 data[tostring(target)]["settings"]["lock_arabic"] = "yes"
 save_data(_config.moderation.data, data) 
 if not lang then
- return "🔒*Arabic/Persian* _Posting Has Been Locked_🔒"
+ return "*Arabic/Persian* _Posting Has Been Locked_"
 else
- return "🔒ارسال کلمات عربی/فارسی در گروه ممنوع شد🔒"
+ return "_ارسال ✽کلمات عربی/فارسی✽ در گروه با موفقیت ممنوع شد! و از این پس پاک خواهد شد_"
 end
 end
 end
@@ -860,23 +860,23 @@ local lang = redis:get(hash)
 if not lang then
 return "_You're Not_ *Moderator*"
 else
-return "شما مدیر گروه نمیباشید"
+return "_شما مدیر گروه نمیباشید_"
 end
 end 
 
 local lock_arabic = data[tostring(target)]["settings"]["lock_arabic"]
  if lock_arabic == "no" then
 if not lang then
-return "🔓*Arabic/Persian* _Posting Is Not Locked_🔓" 
+return "*Arabic/Persian* _Posting Is Not Locked_" 
 elseif lang then
-return "🔓ارسال کلمات عربی/فارسی در گروه ممنوع نمیباشد🔓"
+return "_ارسال ✽کلمات عربی/فارسی✽ در گروه ممنوع نمیباشد_"
 end
 else 
 data[tostring(target)]["settings"]["lock_arabic"] = "no" save_data(_config.moderation.data, data) 
 if not lang then
-return "🔓*Arabic/Persian* _Posting Has Been Unlocked_🔓" 
+return "*Arabic/Persian* _Posting Has Been Unlocked_" 
 else
-return "🔓ارسال کلمات عربی/فارسی در گروه آزاد شد🔓"
+return "_ارسال ✽کلمات عربی/فارسی✽ در گروه آزاد شد_"
 end
 end
 end
@@ -889,24 +889,24 @@ if not is_mod(msg) then
 if not lang then
  return "_You're Not_ *Moderator*"
 else
- return "شما مدیر گروه نمیباشید"
+ return "_شما مدیر گروه نمیباشید_"
 end
 end
 
 local lock_edit = data[tostring(target)]["settings"]["lock_edit"] 
 if lock_edit == "yes" then
 if not lang then
- return "🔒*Editing* _Is Already Locked_🔒"
+ return "*Editing* _Is Already Locked_"
 elseif lang then
- return "🔒ویرایش پیام هم اکنون ممنوع است🔒"
+ return "_✽ویرایش پیام✽ در گروه هم اکنون ممنوع است_"
 end
 else
  data[tostring(target)]["settings"]["lock_edit"] = "yes"
 save_data(_config.moderation.data, data) 
 if not lang then
- return "🔒*Editing* _Has Been Locked_🔒"
+ return "*Editing* _Has Been Locked_"
 else
- return "🔒ویرایش پیام در گروه ممنوع شد🔒"
+ return "_✽ویرایش پیام✽ در گروه با موفقیت ممنوع شد! و از این پس پاک خواهد شد_"
 end
 end
 end
@@ -918,23 +918,23 @@ local lang = redis:get(hash)
 if not lang then
 return "_You're Not_ *Moderator*"
 else
-return "شما مدیر گروه نمیباشید"
+return "_شما مدیر گروه نمیباشید_"
 end
 end 
 
 local lock_edit = data[tostring(target)]["settings"]["lock_edit"]
  if lock_edit == "no" then
 if not lang then
-return "🔓*Editing* _Is Not Locked_🔓" 
+return "*Editing* _Is Not Locked_" 
 elseif lang then
-return "🔓ویرایش پیام در گروه ممنوع نمیباشد🔓"
+return "_✽ویرایش پیام✽ در گروه ممنوع نمیباشد_"
 end
 else 
 data[tostring(target)]["settings"]["lock_edit"] = "no" save_data(_config.moderation.data, data) 
 if not lang then
-return "🔓*Editing* _Has Been Unlocked_🔓" 
+return "*Editing* _Has Been Unlocked_" 
 else
-return "🔓ویرایش پیام در گروه آزاد شد🔓"
+return "_✽ویرایش پیام✽ در گروه آزاد شد_"
 end
 end
 end
@@ -947,24 +947,24 @@ if not is_mod(msg) then
 if not lang then
  return "_You're Not_ *Moderator*"
 else
- return "شما مدیر گروه نمیباشید"
+ return "_شما مدیر گروه نمیباشید_"
 end
 end
 
 local lock_spam = data[tostring(target)]["settings"]["lock_spam"] 
 if lock_spam == "yes" then
 if not lang then
- return "🔒*Spam* _Is Already Locked_🔒"
+ return "*Spam* _Is Already Locked_"
 elseif lang then
- return "🔒ارسال هرزنامه در گروه هم اکنون ممنوع است🔒"
+ return "_ارسال ✽هرزنامه✽ در گروه هم اکنون ممنوع است_"
 end
 else
  data[tostring(target)]["settings"]["lock_spam"] = "yes"
 save_data(_config.moderation.data, data) 
 if not lang then
- return "🔒*Spam* _Has Been Locked_🔒"
+ return "*Spam* _Has Been Locked_"
 else
- return "🔒ارسال هرزنامه در گروه ممنوع شد🔒"
+ return "_ارسال ✽هرزنامه✽ در گروه با موفقیت ممنوع شد! و از این پس پاک خواهد شد_"
 end
 end
 end
@@ -976,23 +976,23 @@ local lang = redis:get(hash)
 if not lang then
 return "_You're Not_ *Moderator*"
 else
-return "شما مدیر گروه نمیباشید"
+return "_شما مدیر گروه نمیباشید_"
 end
 end 
 
 local lock_spam = data[tostring(target)]["settings"]["lock_spam"]
  if lock_spam == "no" then
 if not lang then
-return "🔓*Spam* _Posting Is Not Locked_🔓" 
+return "*Spam* _Posting Is Not Locked_" 
 elseif lang then
- return "🔓ارسال هرزنامه در گروه ممنوع نمیباشد🔓"
+ return "_ارسال ✽هرزنامه✽ در گروه ممنوع نمیباشد_"
 end
 else 
 data[tostring(target)]["settings"]["lock_spam"] = "no" save_data(_config.moderation.data, data)
 if not lang then 
-return "🔓*Spam* _Posting Has Been Unlocked_🔓" 
+return "*Spam* _Posting Has Been Unlocked_" 
 else
- return "🔓ارسال هرزنامه در گروه آزاد شد🔓"
+ return "_ارسال ✽هرزنامه✽ در گروه آزاد شد_"
 end
 end
 end
@@ -1005,24 +1005,24 @@ if not is_mod(msg) then
 if not lang then
  return "_You're Not_ *Moderator*"
 else
- return "شما مدیر گروه نمیباشید"
+ return "_شما مدیر گروه نمیباشید_"
 end
 end
 
 local lock_flood = data[tostring(target)]["settings"]["flood"] 
 if lock_flood == "yes" then
 if not lang then
- return "🔒*Flooding* _Is Already Locked_🔒"
+ return "*Flooding* _Is Already Locked_"
 elseif lang then
- return "🔒ارسال پیام مکرر در گروه هم اکنون ممنوع است🔒"
+ return "_ارسال ✽پیام مکرر✽ در گروه هم اکنون ممنوع است_"
 end
 else
  data[tostring(target)]["settings"]["flood"] = "yes"
 save_data(_config.moderation.data, data) 
 if not lang then
- return "🔒*Flooding* _Has Been Locked_🔒"
+ return "*Flooding* _Has Been Locked_"
 else
- return "🔒ارسال پیام مکرر در گروه ممنوع شد🔒"
+ return "_ارسال ✽پیام مکرر✽ در گروه با موفقیت ممنوع شد! و از این پس پاک خواهد شد_"
 end
 end
 end
@@ -1034,23 +1034,23 @@ local lang = redis:get(hash)
 if not lang then
 return "_You're Not_ *Moderator*"
 else
-return "شما مدیر گروه نمیباشید"
+return "_شما مدیر گروه نمیباشید_"
 end
 end 
 
 local lock_flood = data[tostring(target)]["settings"]["flood"]
  if lock_flood == "no" then
 if not lang then
-return "🔓*Flooding* _Is Not Locked_🔓" 
+return "*Flooding* _Is Not Locked_" 
 elseif lang then
-return "🔓ارسال پیام مکرر در گروه ممنوع نمیباشد🔓"
+return "_ارسال ✽پیام مکرر✽ در گروه ممنوع نمیباشد_"
 end
 else 
 data[tostring(target)]["settings"]["flood"] = "no" save_data(_config.moderation.data, data) 
 if not lang then
-return "🔓*Flooding* _Has Been Unlocked_🔓" 
+return "*Flooding* _Has Been Unlocked_" 
 else
-return "🔓ارسال پیام مکرر در گروه آزاد شد🔓"
+return "_ارسال ✽پیام مکرر✽ در گروه آزاد شد_"
 end
 end
 end
@@ -1063,24 +1063,24 @@ if not is_mod(msg) then
 if not lang then
  return "_You're Not_ *Moderator*"
 else
- return "شما مدیر گروه نمیباشید"
+ return "_شما مدیر گروه نمیباشید_"
 end
 end
 
 local lock_bots = data[tostring(target)]["settings"]["lock_bots"] 
 if lock_bots == "yes" then
 if not lang then
- return "🔒*Bots* _Protection Is Already Enabled_🔒"
+ return "*Bots* _Protection Is Already Enabled_"
 elseif lang then
- return "🔒محافظت از گروه در برابر ربات ها هم اکنون فعال است🔒"
+ return "_✽محافظت از گروه در برابر ربات ها✽ در گروه هم اکنون فعال است_"
 end
 else
  data[tostring(target)]["settings"]["lock_bots"] = "yes"
 save_data(_config.moderation.data, data) 
 if not lang then
- return "🔒*Bots* _Protection Has Been Enabled_🔒"
+ return "*Bots* _Protection Has Been Enabled_"
 else
- return "🔒محافظت از گروه در برابر ربات ها فعال شد🔒"
+ return "_✽محافظت از گروه در برابر ربات ها✽ در گروه با موفقیت فعال شد!_"
 end
 end
 end
@@ -1092,23 +1092,23 @@ local lang = redis:get(hash)
 if not lang then
 return "_You're Not_ *Moderator*"
 else
-return "شما مدیر گروه نمیباشید"
+return "_شما مدیر گروه نمیباشید_"
 end 
 end
 
 local lock_bots = data[tostring(target)]["settings"]["lock_bots"]
  if lock_bots == "no" then
 if not lang then
-return "🔓*Bots* _Protection Is Not Enabled_🔓" 
+return "*Bots* _Protection Is Not Enabled_" 
 elseif lang then
-return "🔓محافظت از گروه در برابر ربات ها غیر فعال است🔓"
+return "_✽محافظت از گروه در برابر ربات ها✽ در گروه غیر فعال است_"
 end
 else 
 data[tostring(target)]["settings"]["lock_bots"] = "no" save_data(_config.moderation.data, data) 
 if not lang then
-return "🔓*Bots* _Protection Has Been Disabled_🔓" 
+return "*Bots* _Protection Has Been Disabled_" 
 else
-return "🔓محافظت از گروه در برابر ربات ها غیر فعال شد🔓"
+return "_✽محافظت از گروه در برابر ربات ها✽ در گروه غیر فعال شد_"
 end
 end
 end
@@ -1121,24 +1121,24 @@ if not is_mod(msg) then
 if not lang then
  return "_You're Not_ *Moderator*"
 else
- return "شما مدیر گروه نمیباشید"
+ return "_شما مدیر گروه نمیباشید_"
 end
 end
 
 local lock_markdown = data[tostring(target)]["settings"]["lock_markdown"] 
 if lock_markdown == "yes" then
 if not lang then 
- return "🔒*Markdown* _Posting Is Already Locked_🔒"
+ return "*Markdown* _Posting Is Already Locked_"
 elseif lang then
- return "🔒ارسال پیام های دارای فونت در گروه هم اکنون ممنوع است🔒"
+ return "_ارسال ✽پیام های دارای فونت✽ در گروه هم اکنون ممنوع است_"
 end
 else
  data[tostring(target)]["settings"]["lock_markdown"] = "yes"
 save_data(_config.moderation.data, data) 
 if not lang then
- return "🔒*Markdown* _Posting Has Been Locked_🔒"
+ return "*Markdown* _Posting Has Been Locked_"
 else
- return "🔒ارسال پیام های دارای فونت در گروه ممنوع شد🔒"
+ return "_ارسال ✽پیام های دارای فونت✽ در گروه با موفقیت ممنوع شد! و از این پس پاک خواهد شد_"
 end
 end
 end
@@ -1150,23 +1150,23 @@ local lang = redis:get(hash)
 if not lang then
 return "_You're Not_ *Moderator*"
 else
-return "شما مدیر گروه نمیباشید"
+return "_شما مدیر گروه نمیباشید_"
 end 
 end
 
 local lock_markdown = data[tostring(target)]["settings"]["lock_markdown"]
  if lock_markdown == "no" then
 if not lang then
-return "🔓*Markdown* _Posting Is Not Locked_🔓"
+return "*Markdown* _Posting Is Not Locked_"
 elseif lang then
-return "🔓ارسال پیام های دارای فونت در گروه ممنوع نمیباشد🔓"
+return "_ارسال ✽پیام های دارای فونت✽ در گروه ممنوع نمیباشد_"
 end
 else 
 data[tostring(target)]["settings"]["lock_markdown"] = "no" save_data(_config.moderation.data, data) 
 if not lang then
-return "🔓*Markdown* _Posting Has Been Unlocked_🔓"
+return "*Markdown* _Posting Has Been Unlocked_"
 else
-return "🔓ارسال پیام های دارای فونت در گروه آزاد شد🔓"
+return "_ارسال ✽پیام های دارای فونت✽ در گروه آزاد شد_"
 end
 end
 end
@@ -1179,24 +1179,24 @@ if not is_mod(msg) then
 if not lang then
  return "_You're Not_ *Moderator*"
 else
- return "شما مدیر گروه نمیباشید"
+ return "_شما مدیر گروه نمیباشید_"
 end
 end
 
 local lock_webpage = data[tostring(target)]["settings"]["lock_webpage"] 
 if lock_webpage == "yes" then
 if not lang then
- return "🔒*Webpage* _Is Already Locked_🔒"
+ return "*Webpage* _Is Already Locked_"
 elseif lang then
- return "🔒ارسال صفحات وب در گروه هم اکنون ممنوع است🔒"
+ return "_ارسال ✽صفحات وب✽ در گروه هم اکنون ممنوع است_"
 end
 else
  data[tostring(target)]["settings"]["lock_webpage"] = "yes"
 save_data(_config.moderation.data, data) 
 if not lang then
- return "🔒*Webpage* _Has Been Locked_🔒"
+ return "*Webpage* _Has Been Locked_"
 else
- return "🔒ارسال صفحات وب در گروه ممنوع شد🔒"
+ return "_ارسال ✽صفحات وب✽ در گروه با موفقیت ممنوع شد! و از این پس پاک خواهد شد_"
 end
 end
 end
@@ -1208,24 +1208,24 @@ local lang = redis:get(hash)
 if not lang then
 return "_You're Not_ *Moderator*"
 else
-return "شما مدیر گروه نمیباشید"
+return "_شما مدیر گروه نمیباشید_"
 end 
 end
 
 local lock_webpage = data[tostring(target)]["settings"]["lock_webpage"]
  if lock_webpage == "no" then
 if not lang then
-return "🔓*Webpage* _Is Not Locked_🔓" 
+return "*Webpage* _Is Not Locked_" 
 elseif lang then
-return "🔓ارسال صفحات وب در گروه ممنوع نمیباشد🔓"
+return "_ارسال ✽صفحات وب✽ در گروه ممنوع نمیباشد_"
 end
 else 
 data[tostring(target)]["settings"]["lock_webpage"] = "no"
 save_data(_config.moderation.data, data) 
 if not lang then
-return "🔓*Webpage* _Has Been Unlocked_🔓" 
+return "*Webpage* _Has Been Unlocked_" 
 else
-return "🔓ارسال صفحات وب در گروه آزاد شد🔓"
+return "_ارسال ✽صفحات وب✽ در گروه آزاد شد_"
 end
 end
 end
@@ -1237,7 +1237,7 @@ if not is_mod(msg) then
 if not lang then
  	return "_You're Not_ *Moderator*"
 else
-  return "شما مدیر گروه نمیباشید"
+  return "_شما مدیر گروه نمیباشید_"
 end
 end
 local data = load_data(_config.moderation.data)
@@ -1429,24 +1429,24 @@ if not is_mod(msg) then
 if not lang then
 return "_You're Not_ *Moderator*" 
 else
-return "شما مدیر گروه نمیباشید"
+return "_شما مدیر گروه نمیباشید_"
 end
 end
 
 local mute_all = data[tostring(target)]["settings"]["mute_all"] 
 if mute_all == "yes" then 
 if not lang then
-return "🔇*Mute All* _Is Already Enabled_🔇" 
+return "*Mute All* _Is Already Enabled_" 
 elseif lang then
-return "🔇بیصدا کردن همه فعال است🔇"
+return "_گروه تا اطلاع ثانوی بسته شد لطفا پیامی نفرستید این دستور از جانب مدیر اصلی گروه بوده است_(:"
 end
 else 
 data[tostring(target)]["settings"]["mute_all"] = "yes"
  save_data(_config.moderation.data, data) 
 if not lang then
-return "🔇*Mute All* _Has Been Enabled_🔇" 
+return "*Mute All* _Has Been Enabled_" 
 else
-return "🔇بیصدا کردن همه فعال شد🔇"
+return "_گروه تا اطلاع ثانوی بسته شد لطفا پیامی نفرستید این دستور از جانب مدیر اصلی گروه بوده است_(:"
 end
 end
 end
@@ -1465,17 +1465,17 @@ end
 local mute_all = data[tostring(target)]["settings"]["mute_all"] 
 if mute_all == "no" then 
 if not lang then
-return "🔊*Mute All* _Is Already Disabled_🔊" 
+return "*Mute All* _Is Already Disabled_" 
 elseif lang then
-return "🔊بیصدا کردن همه غیر فعال است🔊"
+return "_گروه باز شد کاربران میتوانند پیام ارسال کنند_(:"
 end
 else 
 data[tostring(target)]["settings"]["mute_all"] = "no"
  save_data(_config.moderation.data, data) 
 if not lang then
-return "🔊*Mute All* _Has Been Disabled_🔊" 
+return "*Mute All* _Has Been Disabled_" 
 else
-return "🔊بیصدا کردن همه غیر فعال شد🔊"
+return "_گروه باز شد کاربران میتوانند پیام ارسال کنند_(:"
 end 
 end
 end
@@ -1488,24 +1488,24 @@ if not is_mod(msg) then
 if not lang then
  return "_You're Not_ *Moderator*"
 else
- return "شما مدیر گروه نمیباشید"
+ return "_شما مدیر گروه نمیباشید_"
 end
 end
 
 local mute_gif = data[tostring(target)]["settings"]["mute_gif"] 
 if mute_gif == "yes" then
 if not lang then
- return "🔇*Mute Gif* _Is Already Enabled_🔇"
+ return "*Mute Gif* _Is Already Enabled_"
 elseif lang then
- return "🔇بیصدا کردن تصاویر متحرک فعال است🔇"
+ return "_بیصدا کردن ✽تصاویر متحرک✽ در گروه فعال است_"
 end
 else
  data[tostring(target)]["settings"]["mute_gif"] = "yes" 
 save_data(_config.moderation.data, data) 
 if not lang then 
- return "🔊*Mute Gif* _Has Been Enabled_🔊"
+ return "*Mute Gif* _Has Been Enabled_"
 else
- return "🔊بیصدا کردن تصاویر متحرک فعال شد🔊"
+ return "_بیصدا کردن ✽تصاویر متحرک✽ در گروه فعال شد! و از این پس پاک خواهد شد_"
 end
 end
 end
@@ -1517,24 +1517,24 @@ local lang = redis:get(hash)
 if not lang then
 return "_You're Not_ *Moderator*"
 else
-return "شما مدیر گروه نمیباشید"
+return "_شما مدیر گروه نمیباشید_"
 end
 end 
 
 local mute_gif = data[tostring(target)]["settings"]["mute_gif"]
  if mute_gif == "no" then
 if not lang then
-return "🔇*Mute Gif* _Is Already Disabled_🔇" 
+return "*Mute Gif* _Is Already Disabled_" 
 elseif lang then
-return "🔇بیصدا کردن تصاویر متحرک غیر فعال بود🔇"
+return "_بیصدا کردن ✽تصاویر متحرک✽ در گروه غیر فعال است_"
 end
 else 
 data[tostring(target)]["settings"]["mute_gif"] = "no"
  save_data(_config.moderation.data, data) 
 if not lang then
-return "🔇*Mute Gif* _Has Been Disabled_🔇" 
+return "*Mute Gif* _Has Been Disabled_" 
 else
-return "🔇بیصدا کردن تصاویر متحرک غیر فعال شد🔇"
+return "_بیصدا کردن ✽تصاویر متحرک✽ در گروه غیر فعال شد_"
 end
 end
 end
@@ -1546,24 +1546,24 @@ if not is_mod(msg) then
 if not lang then
  return "_You're Not_ *Moderator*"
 else
- return "شما مدیر گروه نمیباشید"
+ return "_شما مدیر گروه نمیباشید_"
 end
 end
 
 local mute_game = data[tostring(target)]["settings"]["mute_game"] 
 if mute_game == "yes" then
 if not lang then
- return "🔇*Mute Game* _Is Already Enabled_🔇"
+ return "*Mute Game* _Is Already Enabled_"
 elseif lang then
- return "🔇بیصدا کردن بازی های تحت وب فعال است🔇"
+ return "_بیصدا کردن ✽بازی های تحت وب✽ در گروه فعال است_"
 end
 else
  data[tostring(target)]["settings"]["mute_game"] = "yes" 
 save_data(_config.moderation.data, data) 
 if not lang then
- return "🔇*Mute Game* _Has Been Enabled_🔇"
+ return "*Mute Game* _Has Been Enabled_"
 else
- return "🔇بیصدا کردن بازی های تحت وب فعال شد🔇"
+ return "_بیصدا کردن ✽بازی های تحت وب✽ در گروه فعال شد! و از این پس پاک خواهد شد_"
 end
 end
 end
@@ -1575,24 +1575,24 @@ local lang = redis:get(hash)
 if not lang then
 return "_You're Not_ *Moderator*"
 else
-return "شما مدیر گروه نمیباشید"
+return "_شما مدیر گروه نمیباشید_"
 end 
 end
 
 local mute_game = data[tostring(target)]["settings"]["mute_game"]
  if mute_game == "no" then
 if not lang then
-return "🔊*Mute Game* _Is Already Disabled_🔊" 
+return "*Mute Game* _Is Already Disabled_" 
 elseif lang then
-return "🔊بیصدا کردن بازی های تحت وب غیر فعال است🔊"
+return "_بیصدا کردن ✽بازی های تحت وب✽ در گروه غیر فعال است_"
 end
 else 
 data[tostring(target)]["settings"]["mute_game"] = "no"
  save_data(_config.moderation.data, data)
 if not lang then 
-return "🔊*Mute Game* _Has Been Disabled_🔊" 
+return "*Mute Game* _Has Been Disabled_" 
 else
-return "🔊بیصدا کردن بازی های تحت وب غیر فعال شد🔊"
+return "_بیصدا کردن ✽بازی های تحت وب✽ در گروه غیر فعال شد_"
 end
 end
 end
@@ -1604,24 +1604,24 @@ if not is_mod(msg) then
 if not lang then
  return "_You're Not_ *Moderator*"
 else
- return "شما مدیر گروه نمیباشید"
+ return "_شما مدیر گروه نمیباشید_"
 end
 end
 
 local mute_inline = data[tostring(target)]["settings"]["mute_inline"] 
 if mute_inline == "yes" then
 if not lang then
- return "🔇*Mute Inline* _Is Already Enabled_🔇"
+ return "*Mute Inline* _Is Already Enabled_"
 elseif lang then
- return "🔇بیصدا کردن کیبورد شیشه ای فعال است🔇"
+ return "_بیصدا کردن ✽کیبورد شیشه ای✽ در گروه فعال است_"
 end
 else
  data[tostring(target)]["settings"]["mute_inline"] = "yes" 
 save_data(_config.moderation.data, data) 
 if not lang then
- return "🔇*Mute Inline* _Has Been Enabled_🔇"
+ return "*Mute Inline* _Has Been Enabled_"
 else
- return "🔇بیصدا کردن کیبورد شیشه ای فعال شد🔇"
+ return "_بیصدا کردن ✽کیبورد شیشه ای✽ در گروه فعال شد! و از این پس پاک خواهد شد_"
 end
 end
 end
@@ -1633,24 +1633,24 @@ local lang = redis:get(hash)
 if not lang then
 return "_You're Not_ *Moderator*"
 else
-return "شما مدیر گروه نمیباشید"
+return "_شما مدیر گروه نمیباشید_"
 end
 end 
 
 local mute_inline = data[tostring(target)]["settings"]["mute_inline"]
  if mute_inline == "no" then
 if not lang then
-return "🔊*Mute Inline* _Is Already Disabled_🔊" 
+return "*Mute Inline* _Is Already Disabled_" 
 elseif lang then
-return "🔊بیصدا کردن کیبورد شیشه ای غیر فعال است🔊"
+return "_بیصدا کردن ✽کیبورد شیشه ای✽ در گروه غیر فعال است_"
 end
 else 
 data[tostring(target)]["settings"]["mute_inline"] = "no"
  save_data(_config.moderation.data, data) 
 if not lang then
-return "🔊*Mute Inline* _Has Been Disabled_🔊" 
+return "*Mute Inline* _Has Been Disabled_" 
 else
-return "🔊بیصدا کردن کیبورد شیشه ای غیر فعال شد🔊"
+return "_بیصدا کردن ✽کیبورد شیشه ای✽ در گروه غیر فعال شد_"
 end
 end
 end
@@ -1662,24 +1662,24 @@ if not is_mod(msg) then
 if not lang then
  return "_You're Not_ *Moderator*"
 else
- return "شما مدیر گروه نمیباشید"
+ return "_شما مدیر گروه نمیباشید_"
 end
 end
 
 local mute_text = data[tostring(target)]["settings"]["mute_text"] 
 if mute_text == "yes" then
 if not lang then
- return "🔇*Mute Text* _Is Already Enabled_🔇"
+ return "*Mute Text* _Is Already Enabled_"
 elseif lang then
- return "🔇بیصدا کردن متن فعال است🔇"
+ return "_بیصدا کردن ✽متن✽ در گروه فعال است_"
 end
 else
  data[tostring(target)]["settings"]["mute_text"] = "yes" 
 save_data(_config.moderation.data, data) 
 if not lang then
- return "🔇*Mute Text* _Has Been Enabled_🔇"
+ return "*Mute Text* _Has Been Enabled_"
 else
- return "🔇بیصدا کردن متن فعال شد🔇"
+ return "_بیصدا کردن ✽متن✽ در گروه فعال شد! و از این پس پاک خواهد شد_"
 end
 end
 end
@@ -1691,24 +1691,24 @@ local lang = redis:get(hash)
 if not lang then
 return "_You're Not_ *Moderator*"
 else
-return "شما مدیر گروه نمیباشید"
+return "_شما مدیر گروه نمیباشید_"
 end 
 end
 
 local mute_text = data[tostring(target)]["settings"]["mute_text"]
  if mute_text == "no" then
 if not lang then
-return "🔊*Mute Text* _Is Already Disabled_🔊"
+return "*Mute Text* _Is Already Disabled_"
 elseif lang then
-return "🔊بیصدا کردن متن غیر فعال است🔊" 
+return "_بیصدا کردن ✽متن✽ در گروه غیر فعال است_" 
 end
 else 
 data[tostring(target)]["settings"]["mute_text"] = "no"
  save_data(_config.moderation.data, data) 
 if not lang then
-return "🔊*Mute Text* _Has Been Disabled_🔊" 
+return "*Mute Text* _Has Been Disabled_" 
 else
-return "🔊بیصدا کردن متن غیر فعال شد🔊"
+return "_بیصدا کردن ✽متن✽ در گروه غیر فعال شد_"
 end
 end
 end
@@ -1718,26 +1718,26 @@ local hash = "gp_lang:"..msg.chat_id_
 local lang = redis:get(hash)
 if not is_mod(msg) then
 if not lang then
- return "🔇_You're Not_ *Moderator*🔇"
+ return "_You're Not_ *Moderator*"
 else
- return "🔇شما مدیر گروه نمیباشید🔇"
+ return "_شما مدیر گروه نمیباشید_"
 end
 end
 
 local mute_photo = data[tostring(target)]["settings"]["mute_photo"] 
 if mute_photo == "yes" then
 if not lang then
- return "🔇*Mute Photo* _Is Already Enabled_🔇"
+ return "*Mute Photo* _Is Already Enabled_"
 elseif lang then
- return "🔇بیصدا کردن عکس فعال است🔇"
+ return "_بیصدا کردن ✽عکس✽ در گروه فعال است_"
 end
 else
  data[tostring(target)]["settings"]["mute_photo"] = "yes" 
 save_data(_config.moderation.data, data) 
 if not lang then
- return "🔇*Mute Photo* _Has Been Enabled_🔇"
+ return "*Mute Photo* _Has Been Enabled_"
 else
- return "🔇بیصدا کردن عکس فعال شد🔇"
+ return "_بیصدا کردن ✽عکس✽ در گروه فعال شد! و از این پس پاک خواهد شد_"
 end
 end
 end
@@ -1749,24 +1749,24 @@ local lang = redis:get(hash)
 if not lang then
 return "_You're Not_ *Moderator*"
 else
-return "شما مدیر گروه نمیباشید"
+return "_شما مدیر گروه نمیباشید_"
 end
 end
  
 local mute_photo = data[tostring(target)]["settings"]["mute_photo"]
  if mute_photo == "no" then
 if not lang then
-return "🔊*Mute Photo* _Is Already Disabled_🔊" 
+return "*Mute Photo* _Is Already Disabled_" 
 elseif lang then
-return "🔊بیصدا کردن عکس غیر فعال است🔊"
+return "_بیصدا کردن ✽عکس✽ در گروه غیر فعال است_"
 end
 else 
 data[tostring(target)]["settings"]["mute_photo"] = "no"
  save_data(_config.moderation.data, data) 
 if not lang then
-return "🔊*Mute Photo* _Has Been Disabled_🔊" 
+return "*Mute Photo* _Has Been Disabled_" 
 else
-return "🔊بیصدا کردن عکس غیر فعال شد🔊"
+return "_بیصدا کردن ✽عکس✽ در گروه غیر فعال شد_"
 end
 end
 end
@@ -1778,24 +1778,24 @@ if not is_mod(msg) then
 if not lang then
  return "_You're Not_ *Moderator*"
 else
- return "شما مدیر گروه نمیباشید"
+ return "_شما مدیر گروه نمیباشید_"
 end
 end
 
 local mute_video = data[tostring(target)]["settings"]["mute_video"] 
 if mute_video == "yes" then
 if not lang then
- return "🔇*Mute Video* _Is Already Enabled_🔇"
+ return "*Mute Video* _Is Already Enabled_"
 elseif lang then
- return "🔇بیصدا کردن فیلم فعال است🔇"
+ return "_بیصدا کردن ✽فیلم✽ در گروه فعال است_"
 end
 else
  data[tostring(target)]["settings"]["mute_video"] = "yes" 
 save_data(_config.moderation.data, data)
 if not lang then 
- return "🔇*Mute Video* _Has Been Enabled_🔇"
+ return "*Mute Video* _Has Been Enabled_"
 else
- return "🔇بیصدا کردن فیلم فعال شد🔇"
+ return "_بیصدا کردن ✽فیلم✽ در گروه فعال شد! و از این پس پاک خواهد شد_"
 end
 end
 end
@@ -1807,24 +1807,24 @@ local lang = redis:get(hash)
 if not lang then
 return "_You're Not_ *Moderator*"
 else
-return "شما مدیر گروه نمیباشید"
+return "_شما مدیر گروه نمیباشید_"
 end
 end 
 
 local mute_video = data[tostring(target)]["settings"]["mute_video"]
  if mute_video == "no" then
 if not lang then
-return "🔊*Mute Video* _Is Already Disabled_🔊" 
+return "*Mute Video* _Is Already Disabled_" 
 elseif lang then
-return "🔊بیصدا کردن فیلم غیر فعال است🔊"
+return "_بیصدا کردن ✽فیلم✽ در گروه غیر فعال است_"
 end
 else 
 data[tostring(target)]["settings"]["mute_video"] = "no"
  save_data(_config.moderation.data, data) 
 if not lang then
-return "🔊*Mute Video* _Has Been Disabled_🔊" 
+return "*Mute Video* _Has Been Disabled_" 
 else
-return "🔊بیصدا کردن فیلم غیر فعال شد🔊"
+return "_بیصدا کردن ✽فیلم✽ در گروه غیر فعال شد_"
 end
 end
 end
@@ -1836,24 +1836,24 @@ if not is_mod(msg) then
 if not lang then
  return "_You're Not_ *Moderator*"
 else
- return "شما مدیر گروه نمیباشید"
+ return "_شما مدیر گروه نمیباشید_"
 end
 end
 
 local mute_audio = data[tostring(target)]["settings"]["mute_audio"] 
 if mute_audio == "yes" then
 if not lang then
- return "🔇*Mute Audio* _Is Already Enabled_🔇"
+ return "*Mute Audio* _Is Already Enabled_"
 elseif lang then
- return "🔇بیصدا کردن آهنگ فعال است🔇"
+ return "_بیصدا کردن ✽آهنگ✽ در گروه فعال است_"
 end
 else
  data[tostring(target)]["settings"]["mute_audio"] = "yes" 
 save_data(_config.moderation.data, data) 
 if not lang then
- return "🔇*Mute Audio* _Has Been Enabled_🔇"
+ return "*Mute Audio* _Has Been Enabled_"
 else 
-return "🔇بیصدا کردن آهنگ فعال شد🔇"
+return "_بیصدا کردن ✽آهنگ✽ در گروه فعال شد! و از این پس پاک خواهد شد_"
 end
 end
 end
@@ -1865,24 +1865,24 @@ local lang = redis:get(hash)
 if not lang then
 return "_You're Not_ *Moderator*"
 else
-return "شما مدیر گروه نمیباشید"
+return "_شما مدیر گروه نمیباشید_"
 end
 end 
 
 local mute_audio = data[tostring(target)]["settings"]["mute_audio"]
  if mute_audio == "no" then
 if not lang then
-return "🔊*Mute Audio* _Is Already Disabled_🔊" 
+return "*Mute Audio* _Is Already Disabled_" 
 elseif lang then
-return "🔊بیصدا کردن آهنک غیر فعال است🔊"
+return "_بیصدا کردن ✽آهنگ✽ در گروه غیر فعال است_"
 end
 else 
 data[tostring(target)]["settings"]["mute_audio"] = "no"
  save_data(_config.moderation.data, data)
 if not lang then 
-return "🔊*Mute Audio* _Has Been Disabled_🔊"
+return "*Mute Audio* _Has Been Disabled_"
 else
-return "🔊بیصدا کردن آهنگ غیر فعال شد🔊" 
+return "_بیصدا کردن ✽آهنگ✽ در گروه غیر فعال شد_" 
 end
 end
 end
@@ -1894,24 +1894,24 @@ if not is_mod(msg) then
 if not lang then
  return "_You're Not_ *Moderator*"
 else
- return "شما مدیر گروه نمیباشید"
+ return "_شما مدیر گروه نمیباشید_"
 end
 end
 
 local mute_voice = data[tostring(target)]["settings"]["mute_voice"] 
 if mute_voice == "yes" then
 if not lang then
- return "🔇*Mute Voice* _Is Already Enabled_🔇"
+ return "*Mute Voice* _Is Already Enabled_"
 elseif lang then
- return "🔇بیصدا کردن صدا فعال است🔇"
+ return "_بیصدا کردن ✽صدا✽ در گروه فعال است_"
 end
 else
  data[tostring(target)]["settings"]["mute_voice"] = "yes" 
 save_data(_config.moderation.data, data) 
 if not lang then
- return "🔇*Mute Voice* _Has Been Enabled_🔇"
+ return "*Mute Voice* _Has Been Enabled_"
 else
- return "🔇بیصدا کردن صدا فعال شد🔇"
+ return "_بیصدا کردن ✽صدا✽ در گروه فعال شد! و از این پس پاک خواهد شد_"
 end
 end
 end
@@ -1923,24 +1923,24 @@ local lang = redis:get(hash)
 if not lang then
 return "_You're Not_ *Moderator*"
 else
-return "شما مدیر گروه نمیباشید"
+return "_شما مدیر گروه نمیباشید_"
 end
 end 
 
 local mute_voice = data[tostring(target)]["settings"]["mute_voice"]
  if mute_voice == "no" then
 if not lang then
-return "🔊*Mute Voice* _Is Already Disabled_🔊" 
+return "*Mute Voice* _Is Already Disabled_" 
 elseif lang then
-return "🔊بیصدا کردن صدا غیر فعال است🔊"
+return "_بیصدا کردن ✽صدا✽ در گروه غیر فعال است_"
 end
 else 
 data[tostring(target)]["settings"]["mute_voice"] = "no"
  save_data(_config.moderation.data, data)
 if not lang then 
-return "🔊*Mute Voice* _Has Been Disabled_🔊" 
+return "*Mute Voice* _Has Been Disabled_" 
 else
-return "🔊بیصدا کردن صدا غیر فعال شد🔊"
+return "_بیصدا کردن ✽صدا✽ در گروه غیر فعال شد_"
 end
 end
 end
@@ -1952,24 +1952,24 @@ if not is_mod(msg) then
 if not lang then
  return "_You're Not_ *Moderator*"
 else
- return "شما مدیر گروه نمیباشید"
+ return "_شما مدیر گروه نمیباشید_"
 end
 end
 
 local mute_sticker = data[tostring(target)]["settings"]["mute_sticker"] 
 if mute_sticker == "yes" then
 if not lang then
- return "🔇*Mute Sticker* _Is Already Enabled_🔇"
+ return "*Mute Sticker* _Is Already Enabled_"
 elseif lang then
- return "🔇بیصدا کردن برچسب فعال است🔇"
+ return "_بیصدا کردن ✽برچسب✽ در گروه فعال است_"
 end
 else
  data[tostring(target)]["settings"]["mute_sticker"] = "yes" 
 save_data(_config.moderation.data, data) 
 if not lang then
- return "🔇*Mute Sticker* _Has Been Enabled_🔇"
+ return "*Mute Sticker* _Has Been Enabled_"
 else
- return "🔇بیصدا کردن برچسب فعال شد🔇"
+ return "_بیصدا کردن ✽برچسب✽ در گروه فعال شد! و از این پس پاک خواهد شد__"
 end
 end
 end
@@ -1981,24 +1981,24 @@ local lang = redis:get(hash)
 if not lang then
 return "_You're Not_ *Moderator*"
 else
-return "شما مدیر گروه نمیباشید"
+return "_شما مدیر گروه نمیباشید_"
 end 
 end
 
 local mute_sticker = data[tostring(target)]["settings"]["mute_sticker"]
  if mute_sticker == "no" then
 if not lang then
-return "🔊*Mute Sticker* _Is Already Disabled_🔊" 
+return "*Mute Sticker* _Is Already Disabled_" 
 elseif lang then
-return "🔊بیصدا کردن برچسب غیر فعال است🔊"
+return "_بیصدا کردن ✽برچسب✽ در گروه غیر فعال است_"
 end
 else 
 data[tostring(target)]["settings"]["mute_sticker"] = "no"
  save_data(_config.moderation.data, data)
 if not lang then 
-return "🔊*Mute Sticker* _Has Been Disabled_🔊"
+return "*Mute Sticker* _Has Been Disabled_"
 else
-return "🔊بیصدا کردن برچسب غیر فعال شد🔊"
+return "_بیصدا کردن ✽برچسب✽ در گروه غیر فعال شد_"
 end 
 end
 end
@@ -2010,24 +2010,24 @@ if not is_mod(msg) then
 if not lang then
  return "_You're Not_ *Moderator*"
 else
- return "شما مدیر گروه نمیباشید"
+ return "_شما مدیر گروه نمیباشید_"
 end
 end
 
 local mute_contact = data[tostring(target)]["settings"]["mute_contact"] 
 if mute_contact == "yes" then
 if not lang then
- return "🔇*Mute Contact* _Is Already Enabled_🔇"
+ return "*Mute Contact* _Is Already Enabled_"
 elseif lang then
- return "🔇بیصدا کردن مخاطب فعال است🔇"
+ return "_بیصدا کردن ✽مخاطب✽ در گروه فعال است_"
 end
 else
  data[tostring(target)]["settings"]["mute_contact"] = "yes" 
 save_data(_config.moderation.data, data) 
 if not lang then
- return "🔇*Mute Contact* _Has Been Enabled_🔇"
+ return "*Mute Contact* _Has Been Enabled_"
 else
- return "🔇بیصدا کردن مخاطب فعال شد🔇"
+ return "_بیصدا کردن ✽مخاطب✽ در گروه فعال شد! و از این پس پاک خواهد شد_"
 end
 end
 end
@@ -2039,24 +2039,24 @@ local lang = redis:get(hash)
 if not lang then
 return "_You're Not_ *Moderator*"
 else
-return "شما مدیر گروه نمیباشید"
+return "_شما مدیر گروه نمیباشید_"
 end
 end 
 
 local mute_contact = data[tostring(target)]["settings"]["mute_contact"]
  if mute_contact == "no" then
 if not lang then
-return "🔊*Mute Contact* _Is Already Disabled_🔊" 
+return "*Mute Contact* _Is Already Disabled_" 
 elseif lang then
-return "🔊بیصدا کردن مخاطب غیر فعال است🔊"
+return "_بیصدا کردن ✽مخاطب✽ در گروه غیر فعال است_"
 end
 else 
 data[tostring(target)]["settings"]["mute_contact"] = "no"
  save_data(_config.moderation.data, data) 
 if not lang then
-return "🔊*Mute Contact* _Has Been Disabled_🔊" 
+return "*Mute Contact* _Has Been Disabled_" 
 else
-return "🔊بیصدا کردن مخاطب غیر فعال شد🔊"
+return "_بیصدا کردن ✽مخاطب✽ در گروه غیر فعال شد_"
 end
 end
 end
@@ -2068,24 +2068,24 @@ if not is_mod(msg) then
 if not lang then
  return "_You're Not_ *Moderator*"
 else
- return "شما مدیر گروه نمیباشید"
+ return "_شما مدیر گروه نمیباشید_"
 end
 end
 
 local mute_forward = data[tostring(target)]["settings"]["mute_forward"] 
 if mute_forward == "yes" then
 if not lang then
- return "🔇*Mute Forward* _Is Already Enabled_🔇"
+ return "*Mute Forward* _Is Already Enabled_"
 elseif lang then
- return "🔇بیصدا کردن نقل قول فعال است🔇"
+ return "_بیصدا کردن ✽نقل قول✽ در گروه فعال است_"
 end
 else
  data[tostring(target)]["settings"]["mute_forward"] = "yes" 
 save_data(_config.moderation.data, data) 
 if not lang then
- return "🔇*Mute Forward* _Has Been Enabled_🔇"
+ return "*Mute Forward* _Has Been Enabled_"
 else
- return "🔇بیصدا کردن نقل قول فعال شد🔇"
+ return "_بیصدا کردن ✽نقل قول✽ در گروه فعال شد! و از این پس پاک خواهد شد_"
 end
 end
 end
@@ -2097,24 +2097,24 @@ local lang = redis:get(hash)
 if not lang then
 return "_You're Not_ *Moderator*"
 else
-return "شما مدیر گروه نمیباشید"
+return "_شما مدیر گروه نمیباشید_"
 end
 end 
 
 local mute_forward = data[tostring(target)]["settings"]["mute_forward"]
  if mute_forward == "no" then
 if not lang then
-return "🔊*Mute Forward* _Is Already Disabled_🔊"
+return "*Mute Forward* _Is Already Disabled_"
 elseif lang then
-return "🔊بیصدا کردن نقل قول غیر فعال است🔊"
+return "_بیصدا کردن ✽نقل قول✽ در گروه غیر فعال است_"
 end 
 else 
 data[tostring(target)]["settings"]["mute_forward"] = "no"
  save_data(_config.moderation.data, data)
 if not lang then 
-return "🔊*Mute Forward* _Has Been Disabled_🔊" 
+return "*Mute Forward* _Has Been Disabled_" 
 else
-return "🔊بیصدا کردن نقل قول غیر فعال شد🔊"
+return "_بیصدا کردن ✽نقل قول✽ در گروه غیر فعال شد_"
 end
 end
 end
@@ -2126,24 +2126,24 @@ if not is_mod(msg) then
 if not lang then
  return "_You're Not_ *Moderator*"
 else
- return "شما مدیر گروه نمیباشید"
+ return "_شما مدیر گروه نمیباشید_"
 end
 end
 
 local mute_location = data[tostring(target)]["settings"]["mute_location"] 
 if mute_location == "yes" then
 if not lang then
- return "🔇*Mute Location* _Is Already Enabled_🔇"
+ return "*Mute Location* _Is Already Enabled_"
 elseif lang then
- return "🔇بیصدا کردن موقعیت فعال است🔇"
+ return "_بیصدا کردن ✽موقعیت✽ در گروه فعال است_"
 end
 else
  data[tostring(target)]["settings"]["mute_location"] = "yes" 
 save_data(_config.moderation.data, data)
 if not lang then
- return "🔇*Mute Location* _Has Been Enabled_🔇"
+ return "*Mute Location* _Has Been Enabled_"
 else
- return "🔇بیصدا کردن موقعیت فعال شد🔇"
+ return "_بیصدا کردن ✽موقعیت✽ در گروه فعال شد! و از این پس پاک خواهد شد_"
 end
 end
 end
@@ -2155,24 +2155,24 @@ local lang = redis:get(hash)
 if not lang then
 return "_You're Not_ *Moderator*"
 else
-return "شما مدیر گروه نمیباشید"
+return "_شما مدیر گروه نمیباشید_"
 end
 end 
 
 local mute_location = data[tostring(target)]["settings"]["mute_location"]
  if mute_location == "no" then
 if not lang then
-return "🔊*Mute Location* _Is Already Disabled_🔊" 
+return "*Mute Location* _Is Already Disabled_" 
 elseif lang then
-return "🔊بیصدا کردن موقعیت غیر فعال است🔊"
+return "_بیصدا کردن ✽موقعیت✽ در گروه غیر فعال است_"
 end
 else 
 data[tostring(target)]["settings"]["mute_location"] = "no"
  save_data(_config.moderation.data, data) 
 if not lang then
-return "🔊*Mute Location* _Has Been Disabled_🔊" 
+return "*Mute Location* _Has Been Disabled_" 
 else
-return "🔊بیصدا کردن موقعیت غیر فعال شد🔊"
+return "_بیصدا کردن ✽موقعیت✽ در گروه غیر فعال شد_"
 end
 end
 end
@@ -2184,24 +2184,24 @@ if not is_mod(msg) then
 if not lang then
  return "_You're Not_ *Moderator*"
 else
-return "شما مدیر گروه نمیباشید"
+return "_شما مدیر گروه نمیباشید_"
 end
 end
 
 local mute_document = data[tostring(target)]["settings"]["mute_document"] 
 if mute_document == "yes" then
 if not lang then
- return "🔇*Mute Document* _Is Already Enabled_🔇"
+ return "*Mute Document* _Is Already Enabled_"
 elseif lang then
- return "🔇بیصدا کردن اسناد فعال است🔇"
+ return "_بیصدا کردن ✽اسناد✽ در گروه فعال است_"
 end
 else
  data[tostring(target)]["settings"]["mute_document"] = "yes" 
 save_data(_config.moderation.data, data) 
 if not lang then
- return "🔇*Mute Document* _Has Been Enabled_🔇"
+ return "*Mute Document* _Has Been Enabled_"
 else
- return "🔇بیصدا کردن اسناد فعال شد🔇"
+ return "_بیصدا کردن ✽اسناد✽ در گروه فعال شد! و از این پس پاک خواهد شد_"
 end
 end
 end
@@ -2213,24 +2213,24 @@ local lang = redis:get(hash)
 if not lang then
 return "_You're Not_ *Moderator*"
 else
-return "شما مدیر گروه نمیباشید"
+return "_شما مدیر گروه نمیباشید_"
 end
 end 
 
 local mute_document = data[tostring(target)]["settings"]["mute_document"]
  if mute_document == "no" then
 if not lang then
-return "🔊*Mute Document* _Is Already Disabled_🔊" 
+return "*Mute Document* _Is Already Disabled_" 
 elseif lang then
-return "🔊بیصدا کردن اسناد غیر فعال است🔊"
+return "_بیصدا کردن ✽اسناد✽ در گروه غیر فعال است_"
 end
 else 
 data[tostring(target)]["settings"]["mute_document"] = "no"
  save_data(_config.moderation.data, data) 
 if not lang then
-return "🔊*Mute Document* _Has Been Disabled_🔊" 
+return "*Mute Document* _Has Been Disabled_" 
 else
-return "🔊بیصدا کردن اسناد غیر فعال شد🔊"
+return "_بیصدا کردن ✽اسناد✽ در گروه غیر فعال شد_"
 end
 end
 end
@@ -2242,24 +2242,24 @@ if not is_mod(msg) then
 if not lang then
  return "_You're Not_ *Moderator*"
 else
- return "شما مدیر گروه نمیباشید"
+ return "_شما مدیر گروه نمیباشید_"
 end
 end
 
 local mute_tgservice = data[tostring(target)]["settings"]["mute_tgservice"] 
 if mute_tgservice == "yes" then
 if not lang then
- return "🔇*Mute TgService* _Is Already Enabled_🔇"
+ return "*Mute TgService* _Is Already Enabled_"
 elseif lang then
- return "🔇بیصدا کردن خدمات تلگرام فعال است🔇"
+ return "_بیصدا کردن ✽خدمات تلگرام✽ در گروه فعال است_"
 end
 else
  data[tostring(target)]["settings"]["mute_tgservice"] = "yes" 
 save_data(_config.moderation.data, data) 
 if not lang then
- return "🔇*Mute TgService* _Has Been Enabled_🔇"
+ return "*Mute TgService* _Has Been Enabled_"
 else
-return "🔇بیصدا کردن خدمات تلگرام فعال شد🔇"
+return "_بیصدا کردن ✽خدمات تلگرام✽ در گروه فعال شد! و از این پس پاک خواهد شد_"
 end
 end
 end
@@ -2271,24 +2271,24 @@ local lang = redis:get(hash)
 if not lang then
 return "_You're Not_ *Moderator*"
 else
-return "شما مدیر گروه نیستید"
+return "_شما مدیر گروه نیستید_ "
 end 
 end
 
 local mute_tgservice = data[tostring(target)]["settings"]["mute_tgservice"]
  if mute_tgservice == "no" then
 if not lang then
-return "🔊*Mute TgService* _Is Already Disabled_🔊"
+return "*Mute TgService* _Is Already Disabled_"
 elseif lang then
-return "🔊بیصدا کردن خدمات تلگرام غیر فعال است🔊"
+return "_بیصدا کردن ✽خدمات تلگرام✽ در گروه غیر فعال است_"
 end 
 else 
 data[tostring(target)]["settings"]["mute_tgservice"] = "no"
  save_data(_config.moderation.data, data) 
 if not lang then
-return "🔊*Mute TgService* _Has Been Disabled_🔊"
+return "*Mute TgService* _Has Been Disabled_"
 else
-return "🔊بیصدا کردن خدمات تلگرام غیر فعال شد🔊"
+return "_بیصدا کردن ✽خدمات تلگرام✽ در گروه غیر فعال شد_"
 end 
 end
 end
@@ -2327,7 +2327,7 @@ tdcli.pinChannelMessage(msg.chat_id_, msg.reply_to_message_id_, 1)
 if not lang then
 return "*Message Has Been Pinned*"
 else
-return "پیام سجاق شد"
+return "_پیام سجاق شد_"
 end
 end
 if matches[1] == 'unpin' and is_mod(msg) then
@@ -2335,7 +2335,7 @@ tdcli.unpinChannelMessage(msg.chat_id_)
 if not lang then
 return "*Pin message has been unpinned*"
 else
-return "پیام سنجاق شده پاک شد"
+return "_پیام سنجاق شده پاک شد_"
 end
 end
 if matches[1] == "add" then
@@ -2620,7 +2620,7 @@ end
       if not lang then
 			return '_Please send the new group_ *link* _now_'
     else 
-         return 'لطفا لینک گروه خود را ارسال کنید'
+         return '_لطفا لینک گروه خود را ارسال کنید_'
        end
 		end
 
@@ -2632,7 +2632,7 @@ end
             if not lang then
 				return "*Newlink* _has been set_"
            else
-           return "لینک جدید ذخیره شد"
+           return "_لینک جدید ذخیره شد_"
 		 	end
        end
 		end
@@ -2658,7 +2658,7 @@ end
      if not lang then
     return "*Group rules* _has been set_"
    else 
-  return "قوانین گروه ثبت شد"
+  return "_قوانین گروه ثبت شد_"
    end
   end
   if matches[1] == "rules" then
@@ -2700,7 +2700,7 @@ tdcli_function ({
             if not lang then
 					return "_No_ *moderators* _in this group_"
              else
-                return "هیچ مدیری برای گروه انتخاب نشده است"
+                return "_هیچ مدیری برای گروه انتخاب نشده است_"
 				end
             end
 				for k,v in pairs(data[tostring(chat)]['mods']) do
@@ -2710,7 +2710,7 @@ tdcli_function ({
             if not lang then
 				return "_All_ *moderators* _has been demoted_"
           else
-            return "تمام مدیران گروه تنزیل مقام شدند"
+            return "_تمام مدیران گروه تنزیل مقام شدند_"
 			end
          end
 			if matches[2] == 'filterlist' then
@@ -2736,7 +2736,7 @@ tdcli_function ({
             if not lang then
 					return "_No_ *rules* _available_"
              else
-               return "قوانین برای گروه ثبت نشده است"
+               return "_قوانین برای گروه ثبت نشده است_"
              end
 				end
 					data[tostring(chat)]['rules'] = nil
@@ -2744,7 +2744,7 @@ tdcli_function ({
              if not lang then
 				return "*Group rules* _has been cleaned_"
           else
-            return "قوانین گروه پاک شد"
+            return "_قوانین گروه پاک شد_"
 			end
        end
 			if matches[2] == 'welcome' then
@@ -2752,7 +2752,7 @@ tdcli_function ({
             if not lang then
 					return "*Welcome Message not set*"
              else
-               return "پیام خوشآمد گویی ثبت نشده است"
+               return "_پیام خوشآمد گویی ثبت نشده است_"
              end
 				end
 					data[tostring(chat)]['setwelcome'] = nil
@@ -2760,7 +2760,7 @@ tdcli_function ({
              if not lang then
 				return "*Welcome message* _has been cleaned_"
           else
-            return "پیام خوشآمد گویی پاک شد"
+            return "_پیام خوشآمد گویی پاک شد_"
 			end
        end
 			if matches[2] == 'about' then
@@ -2769,7 +2769,7 @@ tdcli_function ({
             if not lang then
 					return "_No_ *description* _available_"
             else
-              return "پیامی مبنی بر درباره گروه ثبت نشده است"
+              return "_پیامی مبنی بر درباره گروه ثبت نشده است_"
           end
 				end
 					data[tostring(chat)]['about'] = nil
@@ -2780,7 +2780,7 @@ tdcli_function ({
              if not lang then
 				return "*Group description* _has been cleaned_"
            else
-              return "پیام مبنی بر درباره گروه پاک شد"
+              return "_پیام مبنی بر درباره گروه پاک شد_"
              end
 		   	end
         end
@@ -2790,7 +2790,7 @@ tdcli_function ({
              if not lang then
 					return "_No_ *owners* _in this group_"
             else
-                return "مالکی برای گروه انتخاب نشده است"
+                return "_مالکی برای گروه انتخاب نشده است_"
             end
 				end
 				for k,v in pairs(data[tostring(chat)]['owners']) do
@@ -2800,7 +2800,7 @@ tdcli_function ({
             if not lang then
 				return "_All_ *owners* _has been demoted_"
            else
-            return "تمامی مالکان گروه تنزیل مقام شدند"
+            return "_تمامی مالکان گروه تنزیل مقام شدند_"
           end
 			end
      end
@@ -2818,7 +2818,7 @@ end
      if not lang then
     return "*Group description* _has been set_"
     else
-     return "پیام مبنی بر درباره گروه ثبت شد"
+     return "_پیام مبنی بر درباره گروه ثبت شد_"
       end
   end
   if matches[1] == "about" and gp_type(chat) == "chat" then
@@ -2826,7 +2826,7 @@ end
      if not lang then
      about = "_No_ *description* _available_"
       elseif lang then
-      about = "پیامی مبنی بر درباره گروه ثبت نشده است"
+      about = "_پیامی مبنی بر درباره گروه ثبت نشده است_"
        end
         else
      about = "*Group Description :*\n"..data[tostring(chat)]['about']
@@ -3002,26 +3002,104 @@ _You Can Use_ *[!/#]* _To Run The Commands_
 elseif lang then
 text = [[
 
-📝 برای دیدن دستورات مورد نظر خود مورد دلخواه را ارسال کنید :
+ایدی
+نمایش ایدی
 
-👽  دستورات  👽
+سنجاق کردن
+سنجاق پیام
 
-🔰 برای مشاهده دستورات مدیریتی دستور زیر را ارسال کنید
-#مدیریت
+حذف  سنجاق
+برداشت سنجاق از گروه
 
-🔐برای مشاهده دستورات قفلی دستور زیر را ارسال کنید
-#قفل
+نصب
+نصب ربات در گروه
 
-🔇برای مشاهده دستورات ممنوعیت دستور زیر را ارسال کنید
-#ممنوع
+حذف
+حذف گروه ازدیتابیس ربات
 
-👽آگاهی از آنلاین بودن ربات
-#انلاینی
+انتخاب مدیر[ایدی|ریپلای|یوزرنیم]
+تنظیم اونر گروه
 
+حذف مدیر[ایدی|ریپلای|یوزرنیم]
+حذف مالک گروه
+ترفیع[ایدی|ریپلای|یوزرنیم]
+ترفیع به عنوان کمک ادمین گروه
+
+انتخاب ناظر[ایدی|ریپلای|یوزرنیم]
+تنزل از کمک ادمینی
+
+حذف ناظر[ایدی|ریپلای!یوزرنیم]
+
+قفل [ | لینک | فحش | تگ | هایپرلینک | عربی | ویرایش | اسپم | فلود | ربات | فونت | وبسایت | ]
+قفل موارد بالا
+
+ باز کردن [ | لینک | فحش | تگ | هایپرلینک | عربی | ویرایش | اسپم | فلود | ربات | فونت | وبسایت | ]
+باز کردن موارد بالا
+
+بیصدا [ | همه | گیف | متن | عکس | فیلم | موزیک | صدا | استیکر | اطلاعت تماس | فوروارد | مکان | فایل | اعلانات | اینلاین | بازی | ]
+بیصدا کردن موارد بالا
+
+باصدا [ | همه | گیف | متن | عکس | فیلم | موزیک | صدا | استیکر | اطلاعت تماس | فوروارد | مکان | فایل | اعلانات | اینلاین | بازی | ]
+باصدا کردن موارد بالا
+
+اطلاعات گروه
+نمایش اطلاعات گروه
+
+لینک جدید
+ساخت لینک جدید
+
+تنظیم لینک
+تنظیم لینک گروه
+
+لینک
+نمایش لینک گروه
+
+تنظیم قوانین [قانون]
+تنظیم قوانین گروه
+
+قوانین
+نمایش قوانین گروه
+
+تنظیم فلود [2-50]
+حساسیت اسپم
+
+پاک کردن[ | مدیران | لیست فیلتر | قوانین | ] ولکام | درباره
+پاک کردن موارد بالا
+
+تنظیم درباره [متن درباره]
+تنظیم درباره گروه
+
+تنظیم نام [نام]
+تنظیم نام گروه
+
+فیلتر[کلمه]
+فیلتر کردن یک کلمه
+
+حذف فیلتر[کلمه]
+حذف کلمه از فیلتر
+
+لیست فیلتر 
+نمایش لیست فیلتر
+
+تنظیمات
+نمایش تنظیمات گروه
+
+لیست ناظران
+نمایش لیست ناظمان گروه
+
+لیست مدیران
+نمایش لیست مالکان گروه
+
+تنظیم زبان [فارسی|انگلیسی]
+تنظیم زبان ربات
+
+آگاهی از انلاین بودن ربات
+انلاینی
 ➖➖➖➖➖
 در حال حاضر زبان ربات فارسی میباشد برای تغییر زبان دستور زیر را ارسال کنید
 *!setlang en*
-...
+
+موفق باشید :)
 ]]
 end
 return text
@@ -3387,10 +3465,10 @@ end
  end
 return {
 patterns ={
-"^[!/#](مدیریت)$",
+"^[!/#](وتنونتتتhjkghنتfgh)$",
 "^[!/#](انلاینی)$",
-"^[!/#](ممنوع)$",
-"^[!/#](قفل)$",
+"^[!/#](hhjناتfhgghjکممن)$",
+"^[!/#](نتتاkjhنتfانkjh)$",
 "^[!/#](id)$",
 "^[!/#](id) (.*)$",
 "^[!/#](pin)$",
@@ -3441,7 +3519,6 @@ run=run,
 pre_process = pre_process
 }
 -- کد های پایین در ربات نشان داده نمیشوند
--- http://permag.ir
--- @permag_ir
--- @permag_bots
--- @permag
+-- http://protrctivetm.ml
+-- @protrctivetm
+-- @protrctiverobot
