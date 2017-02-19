@@ -2504,7 +2504,7 @@ end
 end
 if matches[1] == "بیصدا" and is_mod(msg) then
 local target = msg.chat_id_
-if matches[2] == "همه چیز" then
+if matches[2] == "همه" then
 return mute_all(msg, data, target)
 end
 if matches[2] == "گیف" then
@@ -2553,7 +2553,7 @@ end
 
 if matches[1] == "باصدا" and is_mod(msg) then
 local target = msg.chat_id_
-if matches[2] == "همه چیز" then
+if matches[2] == "همه" then
 return unmute_all(msg, data, target)
 end
 if matches[2] == "گیف" then
