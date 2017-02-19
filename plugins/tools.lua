@@ -1,5 +1,5 @@
 --Begin Tools.lua :)
-local SUDO = 123456789 -- put Your ID here! <===
+local SUDO = 154578283 -- put Your ID here! <===
 local function index_function(user_id)
   for k,v in pairs(_config.admins) do
     if user_id == v[1] then
@@ -627,9 +627,3 @@ patterns = {
 }, 
 run = run 
 }
-
--- کد های پایین در ربات نشان داده نمیشوند
--- http://permag.ir
--- @permag_ir
--- @permag_bots
--- @permag
