@@ -90,23 +90,17 @@ function create_config( )
 	"lock-fosh"
 	
  },
-    sudo_users = {123456789},
+    sudo_users = {154578283},
     admins = {},
     disabled_channels = {},
     moderation = {data = './data/moderation.json'},
     info_text = [[》permag.ir v3
 
 🔰Our channel :
-》@permag_bots《
-
-🔰Our channel2 :
-》@permag_ir《
-
-🔰Our channel3 :
-》@permag《
+》@ProtrctiveTM《
 
 🔰Our website :
-》http://permag.ir
+》http://ProtrctiveTM.ML
 ]],
   }
   serialize_to_file(config, './data/config.lua')
@@ -498,7 +492,7 @@ local lang = redis:get(hash)
   if not lang then
     return '_Group is not added_'
 else
-    return 'گروه به لیست گروه های مدیریتی ربات اضافه نشده است'
+    return '_گروه به لیست گروه های مدیریتی ربات اضافه نشده است_'
    end
   end
   -- determine if table is empty
@@ -530,7 +524,7 @@ local lang = redis:get(hash)
   if not lang then
     return '_Group is not added_'
 else
-    return 'گروه به لیست گروه های مدیریتی ربات اضافه نشده است'
+    return '_گروه به لیست گروه های مدیریتی ربات اضافه نشده است_'
    end
   end
   -- determine if table is empty
@@ -593,7 +587,7 @@ local lang = redis:get(hash)
   if not lang then
     return '_Group is not added_'
 else
-    return 'گروه به لیست گروه های مدیریتی ربات اضافه نشده است'
+    return '_گروه به لیست گروه های مدیریتی ربات اضافه نشده است_'
    end
   end
   -- determine if table is empty
@@ -894,7 +888,3 @@ elseif msg.content_.ID == "MessageGame" then
   end
 
 end
--- http://permag.ir
--- @permag_ir
--- @permag_bots
--- @permag
