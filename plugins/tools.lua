@@ -1,4 +1,3 @@
---Begin Tools.lua :)
 local SUDO = 154578283 -- put Your ID here! <===
 local function index_function(user_id)
   for k,v in pairs(_config.admins) do
