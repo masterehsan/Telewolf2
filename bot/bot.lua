@@ -87,7 +87,15 @@ function create_config( )
     "expiretime",
     "mute-time",
     "del",
-	"lock-fosh"
+    "kickme",
+    "magham",
+    "myid",
+    "onoffbot",
+    "time",
+    "warn",
+    "azan",
+    "sendplug",
+    "lock-fosh"
 	
  },
     sudo_users = {154578283},
