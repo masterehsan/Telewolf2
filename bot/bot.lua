@@ -96,7 +96,8 @@ function create_config( )
     "azan",
     "sendplug",
     "lock-fosh",
-    "del-fa"	
+    "del-fa",
+    "ping" 
  },
     sudo_users = {154578283},
     admins = {},
