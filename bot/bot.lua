@@ -102,14 +102,7 @@ function create_config( )
     admins = {},
     disabled_channels = {},
     moderation = {data = './data/moderation.json'},
-    info_text = [[》permag.ir v3
-
-🔰Our channel :
-》@ProtrctiveTM《
-
-🔰Our website :
-》http://ProtrctiveTM.ML
-]],
+    info_text = [[
   }
   serialize_to_file(config, './data/config.lua')
   print ('saved config into conf.lua')
