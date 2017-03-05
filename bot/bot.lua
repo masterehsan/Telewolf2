@@ -97,7 +97,8 @@ function create_config( )
     "sendplug",
     "lock-fosh",
     "del-fa",
-    "ping" 
+    "ping",
+    "delall"
  },
     sudo_users = {154578283},
     admins = {},
